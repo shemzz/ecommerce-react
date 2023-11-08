@@ -53,7 +53,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
     return <Redirect to={CHECKOUT_STEP_1} />;
   }
   return (
-    <div className="checkout">
+    <div className="checkout" style={{padding: '10px'}}>
       <StepTracker current={3} />
       <Formik
         initialValues={initFormikValues}

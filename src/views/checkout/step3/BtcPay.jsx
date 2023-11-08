@@ -14,6 +14,7 @@ const BTCPayButton = ({ amount, orderDetails }) => {
 });
 
   const [orderId, setOrderId] = useState('');
+  const [loadingText, setLoadingText] = useState('Click the link below to complete your payment');
   const storeId = "3RHZia37LNK3qxdHqFYCfMT1eSfiRUPa1bd68g6nWWgm";
   const BTCpayDomain = "https://btcpay0.voltageapp.io";
   const apiKey = '6ad7b7362f5e45489407631b7fd0b325b012026c'; 
@@ -49,6 +50,7 @@ const BTCPayButton = ({ amount, orderDetails }) => {
   };
 
   const generatePaymentUrl = async () => {
+    setLoadingText('Processing... please wait')
     try {
       dispatch(addOrder(orderedItems))
 
@@ -69,7 +71,7 @@ const BTCPayButton = ({ amount, orderDetails }) => {
 
   return (
     <div>
-      <p>Click the link below to complete your payment</p>
+      <p>{loadingText }</p>
         <img onClick={generatePaymentUrl} src="https://btcpay0.voltageapp.io/img/paybutton/pay.svg" style={{ width:"209px", cursor: "pointer"}} alt="Pay with BTCPay Server, a Self-Hosted Bitcoin Payment Processor" />
 
     </div>

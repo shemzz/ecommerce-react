@@ -102,11 +102,11 @@ const ViewProduct = () => {
               <br />
               <span className="text-subtle">{product.brand}</span>
               <h1 className="margin-top-0">{product.name}</h1>
-              <span>{product.description}</span>
+              <span style={{fontWeight: "100"}}>{product.description}</span>
               <br />
               <br />
               <div className="divider" />
-              <br />
+              {/* <br />
               <div>
                 <span className="text-subtle">Lens Width and Frame Size</span>
                 <br />
@@ -117,8 +117,8 @@ const ViewProduct = () => {
                   options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
                   styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
                 />
-              </div>
-              <br />
+              </div> */}
+              {/* <br />
               {product.availableColors.length >= 1 && (
                 <div>
                   <span className="text-subtle">Choose Color</span>
@@ -129,8 +129,8 @@ const ViewProduct = () => {
                     onSelectedColorChange={onSelectedColorChange}
                   />
                 </div>
-              )}
-              <h1>{displayMoney(product.price)}</h1>
+              )} */}
+              <h1 style={{textAlign: "center"}}>{displayMoney(product.price)}</h1>
               <div className="product-modal-action">
                 <button
                   className={`button button-small ${isItemOnBasket(product.id) ? 'button-border button-border-gray' : ''}`}
@@ -143,9 +143,9 @@ const ViewProduct = () => {
               </div>
             </div>
           </div>
-          <div style={{ marginTop: '10rem' }}>
-            <div className="display-header">
-              <h1>Recommended</h1>
+          <div style={{ marginTop: '10rem', padding: '5px'}}>
+            <div className="display-header" style={{padding: '5px'}}>
+              <h3>Recommended</h3>
               <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
             </div>
             {errorFeatured && !isLoadingFeatured ? (

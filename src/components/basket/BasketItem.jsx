@@ -31,32 +31,18 @@ const BasketItem = ({ product }) => {
           </Link>
           <div className="basket-item-specs">
             <div>
-              <span className="spec-title">Quantity</span>
+              <span className="spec-title">Qty</span>
               <h5 className="my-0">{product.quantity}</h5>
             </div>
-            <div>
-              <span className="spec-title">Size</span>
-              <h5 className="my-0">
-                {product.selectedSize}
-                {' '}
-                mm
-              </h5>
-            </div>
-            <div>
-              <span className="spec-title">Color</span>
-              <div style={{
-                backgroundColor: product.selectedColor || product.availableColors[0],
-                width: '15px',
-                height: '15px',
-                borderRadius: '50%'
-              }}
-              />
-            </div>
+             <div>
+              <h3 className="my-0" style={{marginLeft: '5px', fontSize:'20px'}}>{displayMoney(product.price * product.quantity)}</h3>
+            </div> 
+          
           </div>
         </div>
-        <div className="basket-item-price">
+        {/* <div className="basket-item-price">
           <h4 className="my-0">{displayMoney(product.price * product.quantity)}</h4>
-        </div>
+        </div> */}
         <button
           className="basket-item-remove button button-border button-border-gray button-small"
           onClick={onRemoveFromBasket}

@@ -54,9 +54,9 @@ const ProductItem = ({ product, isItemOnBasket, addToBasket }) => {
             <p className="product-card-brand">
               {product.brand || <Skeleton width={60} />}
             </p>
-            <h4 className="product-card-price">
+            <h3 className="product-card-price">
               {product.price ? displayMoney(product.price) : <Skeleton width={40} />}
-            </h4>
+            </h3>
           </div>
         </div>
         {product.id && (
