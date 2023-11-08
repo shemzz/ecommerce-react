@@ -36,19 +36,12 @@ const SocialLogin = ({ isLoading }) => {
         disabled={isLoading}
         onClick={onSignInWithGoogle}
         type="button"
+        style={{backgroundColor: "#ff0606", color: "#f3f3f3"}}
       >
-        <GoogleOutlined />
+        <GoogleOutlined style={{color: "#fff"}} />
         Continue with Google
       </button>
-      <button
-        className="button auth-provider-button provider-github"
-        disabled={isLoading}
-        onClick={onSignInWithGithub}
-        type="button"
-      >
-        <GithubFilled />
-        Continue with GitHub
-      </button>
+     
     </div>
   );
 };

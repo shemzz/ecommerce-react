@@ -140,16 +140,6 @@ const ViewProduct = () => {
                   {isItemOnBasket(product.id) ? 'Remove From Basket' : 'Add To Basket'}
                 </button>
 
-                {isItemOnBasket(product.id) ? (
-                 <Link to="checkout/step1"
-                 className={`button button-small ${isItemOnBasket(product.id) ? 'button-border button-border-gray' : ''}`}
-                 type="button"
-               >
-                 Go to Cart
-               </Link>
-          ): ''}
-
-
               </div>
             </div>
           </div>
