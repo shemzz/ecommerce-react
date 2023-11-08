@@ -3,6 +3,7 @@ import PropType from 'prop-types';
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useHistory } from 'react-router-dom';
+import { displayMoney } from '@/helpers/utils';
 
 const ProductFeatured = ({ product }) => {
   const history = useHistory();
@@ -26,7 +27,7 @@ const ProductFeatured = ({ product }) => {
         <div className="product-display-details">
           <h2>{product.name || <Skeleton width={80} />}</h2>
           <p className="text-subtle text-italic">
-            {product.brand || <Skeleton width={40} />}
+            {displayMoney(product.price) || <Skeleton width={40} />}
           </p>
         </div>
       </div>
