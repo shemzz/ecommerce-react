@@ -6,12 +6,13 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 
 const CustomMobileInput = (props) => {
-  console.log(props)
+  console.log('props', props)
   const [field, meta, helpers] = useField(props);
-  const { label, placeholder, defaultValue } = props;
+  const { label, placeholder } = props;
+  const defaultValue = props?.defaultValue;
   const { touched, error } = meta;
   const { setValue } = helpers;
-  console.log(defaultValue)
+  console.log('valuee', defaultValue)
 
   const handleChange = (value, data) => {
     const mob = {
