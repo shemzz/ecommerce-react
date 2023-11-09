@@ -39,6 +39,7 @@ const FormSchema = Yup.object().shape({
 });
 
 const ShippingDetails = ({ profile, shipping, subtotal }) => {
+  console.log('profilee', profile)
   useDocumentTitle('Check Out Step 2 | ChristaGold');
   useScrollTop();
   const dispatch = useDispatch();
