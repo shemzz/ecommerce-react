@@ -54,11 +54,12 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
   };
 
   const onSubmitForm = (form) => {
+    console.log(form)
     dispatch(setShippingDetails({
       fullname: form.fullname,
       email: form.email,
       address: form.address,
-      mobile: form.mobile,
+      mobile: form.phone,
       isInternational: form.isInternational,
       isDone: true
     }));
@@ -125,7 +126,7 @@ ShippingDetails.propTypes = {
     fullname: PropType.string,
     email: PropType.string,
     address: PropType.string,
-    mobile: PropType.object,
+    mobile: PropType.string,
     isInternational: PropType.bool,
     isDone: PropType.bool
   }).isRequired
