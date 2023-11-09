@@ -40,8 +40,17 @@ const ShippingForm = () => {
             />
           </div>
           <div className="d-block checkout-field">
-            <CustomMobileInput name="mobile" defaultValue={values.mobile} />
+            <Field
+              name="phone"
+              type="phone"
+              label="* Phone Number"
+              placeholder="Enter Phone Number"
+              component={CustomInput}
+            />
           </div>
+          {/* <div className="d-block checkout-field">
+            <CustomMobileInput name="mobile" defaultValue={values.mobile} />
+          </div> */}
         </div>
         <div className="checkout-fieldset">
           <Field name="isInternational">
