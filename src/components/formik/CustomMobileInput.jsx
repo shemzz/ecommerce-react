@@ -49,11 +49,11 @@ CustomMobileInput.defaultProps = {
   placeholder: '01254461351'
 };
 
-CustomMobileInput.propTypes = {
-  label: PropType.string,
-  placeholder: PropType.string,
-  defaultValue: PropType.oneOfType([PropType.string, PropType.number]).isRequired
-};
+// CustomMobileInput.propTypes = {
+//   label: PropType.string,
+//   placeholder: PropType.string,
+//   defaultValue: PropType.oneOfType([PropType.string, PropType.number]).isRequired
+// };
 
 
 export default CustomMobileInput;
