@@ -43,7 +43,6 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
   useScrollTop();
   const dispatch = useDispatch();
   const history = useHistory();
-  const  basket  = history.location.state;
 
   const initFormikValues = {
     fullname: shipping.fullname || profile.fullname || '',
@@ -63,10 +62,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
       isInternational: form.isInternational,
       isDone: true
     }));
-    history.push({
-      pathname: CHECKOUT_STEP_3,
-      state: basket
-    });
+    history.push(CHECKOUT_STEP_3);
   };
 
   return (

@@ -16,10 +16,8 @@ const OrderSummary = ({ basket, subtotal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const onClickPrevious = () => history.push('/');
-  const onClickNext = () => history.push({
-    pathname: CHECKOUT_STEP_2,
-    state: basket
-  });
+  const onClickNext = () => history.push(CHECKOUT_STEP_2);
+
 
   return (
     <div className="checkout" style={{padding: '7px'}}>

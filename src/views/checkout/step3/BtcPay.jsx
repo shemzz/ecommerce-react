@@ -3,15 +3,19 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addOrder } from '@/redux/actions/orderActions';
 
-const BTCPayButton = ({ amount, orderDetails }) => {
+const BTCPayButton = ({ amount }) => {
+  const orderDetailsString = localStorage.getItem('basket-items');
+  const orderDetails = JSON.parse(orderDetailsString);
+
   const dispatch = useDispatch();
+
   const orderedItems = orderDetails.map(item => {
     return {
         name_lower: item.name_lower,
         quantity: item.quantity,
         id: item.id
     };
-});
+  });
 
   const [orderId, setOrderId] = useState('');
   const [loadingText, setLoadingText] = useState('Click the link below to complete your payment');
@@ -61,6 +65,7 @@ const BTCPayButton = ({ amount, orderDetails }) => {
       })
         .then(resp => resp.json())
         .then(data => {
+          localStorage.removeItem('basket-items');
           window.location.href = data.checkoutLink;
       })
       

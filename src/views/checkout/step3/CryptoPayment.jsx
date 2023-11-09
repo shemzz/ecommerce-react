@@ -4,7 +4,7 @@ import { CustomInput } from '@/components/formik';
 import axios from 'axios';
 import BTCPayButton from './BtcPay';
 
-const CryptoPayment = ({ subtotal, orderDetails }) => {
+const CryptoPayment = ({ subtotal }) => {
   const { values, setValues } = useFormikContext();
   const checkboxContainerRef = useRef(null);
 
@@ -58,7 +58,7 @@ const CryptoPayment = ({ subtotal, orderDetails }) => {
             </div>
 
             <div className='pay-button'>
-              <BTCPayButton amount={subtotal} orderDetails={orderDetails} />
+              <BTCPayButton amount={subtotal} />
             </div>
           </div>
         )}

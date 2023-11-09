@@ -12,7 +12,6 @@ import CreditPayment from './CreditPayment';
 import PayPalPayment from './PayPalPayment';
 import CryptoPayment from './CryptoPayment';
 import Total from './Total';
-import { useHistory } from 'react-router-dom';
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -34,8 +33,6 @@ const FormSchema = Yup.object().shape({
 const Payment = ({ shipping, payment, subtotal }) => {
   useDocumentTitle('Check Out Final Step | ChristaGold');
   useScrollTop();
-  const history = useHistory();
-  const  basket  = history.location.state;
 
   const initFormikValues = {
     name: payment.name || '',
@@ -70,7 +67,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
           <Form className="checkout-step-3">
             <CreditPayment />
             <PayPalPayment />
-            <CryptoPayment subtotal={subtotal + (shipping.isInternational ? 50 : 0)} orderDetails ={basket} />
+            <CryptoPayment subtotal={subtotal + (shipping.isInternational ? 50 : 0)} />
             <Total
               isInternational={shipping.isInternational}
               subtotal={subtotal}
