@@ -48,18 +48,17 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
     fullname: shipping.fullname || profile.fullname || '',
     email: shipping.email || profile.email || '',
     address: shipping.address || profile.address || '',
-    mobile: '+1',
+    mobile: shipping.mobile || profile.mobile || {},
     isInternational: shipping.isInternational || false,
     isDone: shipping.isDone || false
   };
 
   const onSubmitForm = (form) => {
-    console.log(form)
     dispatch(setShippingDetails({
       fullname: form.fullname,
       email: form.email,
       address: form.address,
-      mobile: form.phone,
+      mobile: form.mobile,
       isInternational: form.isInternational,
       isDone: true
     }));
@@ -126,7 +125,7 @@ ShippingDetails.propTypes = {
     fullname: PropType.string,
     email: PropType.string,
     address: PropType.string,
-    mobile: PropType.string,
+    mobile: PropType.object,
     isInternational: PropType.bool,
     isDone: PropType.bool
   }).isRequired

@@ -25,7 +25,7 @@ const CustomMobileInput = (props) => {
   return (
     <div className="input-group">
       {touched && error ? (
-        <span className="label-input label-error">{error?.value || error?.dialCode}</span>
+        <span className="label-input label-error">{error?.dialCode}</span>
       ) : (
         <label className="label-input" htmlFor={field.name}>{label}</label>
       )}
@@ -41,6 +41,7 @@ const CustomMobileInput = (props) => {
         placeholder={placeholder}
         value={defaultValue.value}
       />
+
     </div>
   );
 };
