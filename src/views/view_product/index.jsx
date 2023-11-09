@@ -22,8 +22,6 @@ const ViewProduct = () => {
   useDocumentTitle(`View ${product?.name || 'Item'}`);
 
   const [selectedImage, setSelectedImage] = useState(product?.image || '');
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState('');
 
   const {
     recommendedProducts,
@@ -37,19 +35,10 @@ const ViewProduct = () => {
     setSelectedImage(product?.image);
   }, [product]);
 
-  const onSelectedSizeChange = (newValue) => {
-    setSelectedSize(newValue.value);
-  };
 
-  const onSelectedColorChange = (color) => {
-    setSelectedColor(color);
-    if (colorOverlay.current) {
-      colorOverlay.current.value = color;
-    }
-  };
 
   const handleAddToBasket = () => {
-    addToBasket({ ...product, selectedColor, selectedSize: selectedSize || product.sizes[0] });
+    addToBasket({ ...product });
   };
 
   return (
@@ -91,7 +80,6 @@ const ViewProduct = () => {
               </div>
             )}
             <div className="product-modal-image-wrapper">
-              {selectedColor && <input type="color" disabled ref={colorOverlay} id="color-overlay" />}
               <ImageLoader
                 alt={product.name}
                 className="product-modal-image"

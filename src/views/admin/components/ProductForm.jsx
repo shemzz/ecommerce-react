@@ -2,7 +2,7 @@
 import { CheckOutlined, LoadingOutlined } from '@ant-design/icons';
 import { ImageLoader } from '@/components/common';
 import {
-  CustomColorInput, CustomCreatableSelect, CustomInput, CustomTextarea
+   CustomCreatableSelect, CustomInput, CustomTextarea
 } from '@/components/formik';
 import {
   Field, FieldArray, Form, Formik
@@ -39,14 +39,8 @@ const FormSchema = Yup.object().shape({
   keywords: Yup.array()
     .of(Yup.string())
     .min(1, 'Please enter at least 1 keyword for this product.'),
-  sizes: Yup.array()
-    .of(Yup.number())
-    .min(1, 'Please enter a size for this product.'),
   isFeatured: Yup.boolean(),
-  isRecommended: Yup.boolean(),
-  availableColors: Yup.array()
-    .of(Yup.string().required())
-    .min(1, 'Please add a default color for this product.')
+  isRecommended: Yup.boolean()
 });
 
 const ProductForm = ({ product, onSubmit, isLoading }) => {
@@ -57,10 +51,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
     maxQuantity: product?.maxQuantity || 0,
     description: product?.description || '',
     keywords: product?.keywords || [],
-    sizes: product?.sizes || [],
     isFeatured: product?.isFeatured || false,
     isRecommended: product?.isRecommended || false,
-    availableColors: product?.availableColors || []
   };
 
   const {
@@ -169,27 +161,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     label="* Keywords"
                   />
                 </div>
-                &nbsp;
-                <div className="product-form-field">
-                  <CustomCreatableSelect
-                    defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
-                    name="sizes"
-                    iid="sizes"
-                    type="number"
-                    isMulti
-                    disabled={isLoading}
-                    placeholder="Create/Select Sizes"
-                    label="* Sizes (Millimeter)"
-                  />
-                </div>
               </div>
-              <div className="product-form-field">
-                <FieldArray
-                  name="availableColors"
-                  disabled={isLoading}
-                  component={CustomColorInput}
-                />
-              </div>
+            
               <div className="product-form-field">
                 <span className="d-block padding-s">Image Collection</span>
                 {!isFileLoading && (
@@ -322,12 +295,10 @@ ProductForm.propTypes = {
     description: PropType.string,
     keywords: PropType.arrayOf(PropType.string),
     imageCollection: PropType.arrayOf(PropType.object),
-    sizes: PropType.arrayOf(PropType.string),
     image: PropType.string,
     imageUrl: PropType.string,
     isFeatured: PropType.bool,
     isRecommended: PropType.bool,
-    availableColors: PropType.arrayOf(PropType.string)
   }).isRequired,
   onSubmit: PropType.func.isRequired,
   isLoading: PropType.bool.isRequired

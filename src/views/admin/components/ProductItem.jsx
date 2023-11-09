@@ -120,7 +120,6 @@ ProductItem.propTypes = {
     description: PropType.string,
     keywords: PropType.arrayOf(PropType.string),
     imageCollection: PropType.arrayOf(PropType.object),
-    sizes: PropType.arrayOf(PropType.string),
     image: PropType.string,
     imageUrl: PropType.string,
     isFeatured: PropType.bool,
