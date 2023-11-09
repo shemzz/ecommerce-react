@@ -67,7 +67,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
 
   return (
     <Boundary>
-      <div className="checkout">
+      <div className="checkout" style={{padding: '10px'}}>
         <StepTracker current={2} />
         <div className="checkout-step-2">
           <h3 className="text-center">Shipping Details</h3>

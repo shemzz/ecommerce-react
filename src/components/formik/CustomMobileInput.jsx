@@ -9,6 +9,7 @@ const CustomMobileInput = (props) => {
   const { label, placeholder, defaultValue } = props;
   const { touched, error } = meta;
   const { setValue } = helpers;
+  console.log(defaultValue)
 
   const handleChange = (value, data) => {
     const mob = {
@@ -49,11 +50,15 @@ CustomMobileInput.defaultProps = {
   placeholder: '01254461351'
 };
 
-// CustomMobileInput.propTypes = {
-//   label: PropType.string,
-//   placeholder: PropType.string,
-//   defaultValue: PropType.oneOfType([PropType.string, PropType.number]).isRequired
-// };
+CustomMobileInput.propTypes = {
+  label: PropType.string,
+  placeholder: PropType.string,
+  defaultValue: PropType.shape({
+    dialCode: PropType.string,
+    countryCode: PropType.string,
+    value: PropType.string
+  }).isRequired
+};
 
 
 export default CustomMobileInput;
