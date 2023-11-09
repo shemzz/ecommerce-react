@@ -3,8 +3,10 @@ import { useField } from 'formik';
 import PropType from 'prop-types';
 import React from 'react';
 import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css'
 
 const CustomMobileInput = (props) => {
+  console.log(props)
   const [field, meta, helpers] = useField(props);
   const { label, placeholder, defaultValue } = props;
   const { touched, error } = meta;
@@ -29,7 +31,7 @@ const CustomMobileInput = (props) => {
       ) : (
         <label className="label-input" htmlFor={field.name}>{label}</label>
       )}
-      <PhoneInput
+      {/* <PhoneInput
         name={field.name}
         country={'us'}
         inputClass="input-form d-block"
@@ -40,7 +42,14 @@ const CustomMobileInput = (props) => {
         onChange={handleChange}
         placeholder={placeholder}
         value={defaultValue.value}
-      />
+      /> */}
+    
+
+<PhoneInput
+  country={'us'}
+  value={defaultValue.value}
+  onChange={handleChange}
+/>
 
     </div>
   );
