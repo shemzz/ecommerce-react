@@ -5,11 +5,10 @@ import React from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 
-const CustomMobileInput = (props, {defaultValue}) => {
+const CustomMobileInput = (props) => {
   console.log('props', props)
   const [field, meta, helpers] = useField(props);
-  const { label, placeholder } = props;
-  // const defaultValue = props?.defaultValue;
+  const { label, placeholder, defaultValue } = props;
   const { touched, error } = meta;
   const { setValue } = helpers;
   console.log('defaultvalues', defaultValue)
@@ -30,10 +29,10 @@ const CustomMobileInput = (props, {defaultValue}) => {
       {touched && error ? (
         <span className="label-input label-error">{error?.dialCode}</span>
       ) : (
-        <label className="label-input" htmlFor={field.name}>{label}</label>
+        <label className="label-input" htmlFor='mobile'>{label}</label>
       )}
       <PhoneInput
-        name={field.name}
+        name='mobile'
         country={'us'}
         inputClass="input-form d-block"
         style={{
