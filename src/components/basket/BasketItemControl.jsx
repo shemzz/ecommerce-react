@@ -41,26 +41,29 @@ const BasketItemControl = ({ product }) => {
   );
 };
 
-BasketItemControl.propTypes = {
-  product: PropType.shape({
-    id: PropType.string,
-    name: PropType.string,
-    brand: PropType.string,
-    price: PropType.number,
-    quantity: PropType.number,
-    maxQuantity: PropType.number,
-    description: PropType.string,
-    keywords: PropType.arrayOf(PropType.string),
-    selectedSize: PropType.string,
-    selectedColor: PropType.string,
-    imageCollection: PropType.arrayOf(PropType.string),
-    sizes: PropType.arrayOf(PropType.number),
-    image: PropType.string,
-    imageUrl: PropType.string,
-    isFeatured: PropType.bool,
-    isRecommended: PropType.bool,
-    availableColors: PropType.arrayOf(PropType.string)
-  }).isRequired
-};
+// BasketItemControl.propTypes = {
+//   product: PropType.shape({
+//     id: PropType.string,
+//     name: PropType.string,
+//     brand: PropType.string,
+//     price: PropType.number,
+//     quantity: PropType.number,
+//     maxQuantity: PropType.number,
+//     description: PropType.string,
+//     keywords: PropType.arrayOf(PropType.string),
+//     selectedSize: PropType.string,
+//     selectedColor: PropType.string,
+//     imageCollection: PropType.arrayOf(PropType.shape({
+//       url: PropType.string,
+//       id: PropType.string
+//     })),
+//     sizes: PropType.arrayOf(PropType.number),
+//     image: PropType.string,
+//     imageUrl: PropType.string,
+//     isFeatured: PropType.bool,
+//     isRecommended: PropType.bool,
+//     availableColors: PropType.arrayOf(PropType.string)
+//   }).isRequired
+// };
 
 export default BasketItemControl;

@@ -73,9 +73,9 @@ const ViewProduct = () => {
             </h3>
           </Link>
           <div className="product-modal">
-            {product.imageCollection.length !== 0 && (
+            {product?.imageCollection.length !== 0 && (
               <div className="product-modal-image-collection">
-                {product.imageCollection.map((image) => (
+                {product?.imageCollection.map((image) => (
                   <div
                     className="product-modal-image-collection-wrapper"
                     key={image.id}
@@ -106,30 +106,6 @@ const ViewProduct = () => {
               <br />
               <br />
               <div className="divider" />
-              {/* <br />
-              <div>
-                <span className="text-subtle">Lens Width and Frame Size</span>
-                <br />
-                <br />
-                <Select
-                  placeholder="--Select Size--"
-                  onChange={onSelectedSizeChange}
-                  options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
-                  styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
-                />
-              </div> */}
-              {/* <br />
-              {product.availableColors.length >= 1 && (
-                <div>
-                  <span className="text-subtle">Choose Color</span>
-                  <br />
-                  <br />
-                  <ColorChooser
-                    availableColors={product.availableColors}
-                    onSelectedColorChange={onSelectedColorChange}
-                  />
-                </div>
-              )} */}
               <h1 style={{textAlign: "center"}}>{displayMoney(product.price)}</h1>
               <div className="product-modal-action">
                 <button

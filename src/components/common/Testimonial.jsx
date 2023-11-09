@@ -1,10 +1,6 @@
-import { ImageLoader } from '@/components/common';
-import PropType from 'prop-types';
 import React from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import { displayMoney } from '@/helpers/utils';
 
-const Testimonial = ({ product }) => {
+const Testimonial = () => {
 
   return (
     <div className='testimonials'>
@@ -23,15 +19,6 @@ const Testimonial = ({ product }) => {
       </div>
     </div>
   );
-};
-
-Testimonial.propTypes = {
-  product: PropType.shape({
-    image: PropType.string,
-    name: PropType.string,
-    id: PropType.string,
-    brand: PropType.string
-  }).isRequired
 };
 
 export default Testimonial;
