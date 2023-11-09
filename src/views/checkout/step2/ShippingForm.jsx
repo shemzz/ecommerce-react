@@ -5,6 +5,7 @@ import React from 'react';
 
 const ShippingForm = () => {
   const { values } = useFormikContext();
+  console.log('values', values.mobile)
   return (
     <div className="checkout-shipping-wrapper">
       <div className="checkout-shipping-form">
