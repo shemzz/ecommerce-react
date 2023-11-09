@@ -22,28 +22,25 @@ const CustomMobileInput = (props) => {
   };
 
   return (
-    <>
-      <h2>number</h2>
-    </>
-    // <div className="input-group">
-    //   {touched && error ? (
-    //     <span className="label-input label-error">{error?.value || error?.dialCode}</span>
-    //   ) : (
-    //     <label className="label-input" htmlFor={field.name}>{label}</label>
-    //   )}
-    //   <PhoneInput
-    //     name={field.name}
-    //     country="us"
-    //     inputClass="input-form d-block"
-    //     style={{
-    //       border: touched && error ? '1px solid red' : '1px solid #cacaca'
-    //     }}
-    //     inputExtraProps={{ required: true }}
-    //     onChange={handleChange}
-    //     placeholder={placeholder}
-    //     value={defaultValue.value}
-    //   />
-    // </div>
+    <div className="input-group">
+      {touched && error ? (
+        <span className="label-input label-error">{error?.value || error?.dialCode}</span>
+      ) : (
+        <label className="label-input" htmlFor={field.name}>{label}</label>
+      )}
+      <PhoneInput
+        name={field.name}
+        country="us"
+        inputClass="input-form d-block"
+        style={{
+          border: touched && error ? '1px solid red' : '1px solid #cacaca'
+        }}
+        inputExtraProps={{ required: true }}
+        onChange={handleChange}
+        placeholder={placeholder}
+        value={defaultValue.value}
+      />
+    </div>
   );
 };
 
@@ -55,7 +52,8 @@ CustomMobileInput.defaultProps = {
 CustomMobileInput.propTypes = {
   label: PropType.string,
   placeholder: PropType.string,
-  defaultValue: PropType.object.isRequired
+  defaultValue: PropType.oneOfType([PropType.string, PropType.number]).isRequired
 };
+
 
 export default CustomMobileInput;
