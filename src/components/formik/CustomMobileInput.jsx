@@ -6,7 +6,6 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 
 const CustomMobileInput = (props) => {
-  console.log('props', props)
   const [field, meta, helpers] = useField(props);
   const { label, placeholder, defaultValue } = props;
   const { touched, error } = meta;
@@ -15,10 +14,10 @@ const CustomMobileInput = (props) => {
 
   const handleChange = (value, data) => {
     const mob = {
-      dialCode: data.dialCode,
-      countryCode: data.countryCode,
-      country: data.name,
-      value
+      country: data.name || "United States",
+      countryCode: data.countryCode || "us",
+      dialCode: data.dialCode || "1",
+      value: value || ""
     };
 
     setValue(mob);

@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { CustomInput, CustomMobileInput } from '@/components/formik';
 import { Field, useFormikContext } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 const ShippingForm = () => {
   const { values } = useFormikContext();
-  console.log('values', values.mobile)
+  const [phone, setPhone] = useState('')
+  console.log(values)
+  if (values.mobile.value == undefined) {
+    console.log('no values')
+    values.mobile = { dialCode: '1', countryCode: 'us', country: 'United States', value: phone }
+  }
+
   return (
     <div className="checkout-shipping-wrapper">
       <div className="checkout-shipping-form">
@@ -40,6 +46,7 @@ const ShippingForm = () => {
               component={CustomInput}
             />
           </div>
+          {/* tt */}
           
           <div className="d-block checkout-field">
             <CustomMobileInput name="mobile" defaultValue={values.mobile} />

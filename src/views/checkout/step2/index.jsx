@@ -39,7 +39,6 @@ const FormSchema = Yup.object().shape({
 });
 
 const ShippingDetails = ({ profile, shipping, subtotal }) => {
-  console.log('profilee', profile)
   useDocumentTitle('Check Out Step 2 | ChristaGold');
   useScrollTop();
   const dispatch = useDispatch();
@@ -49,12 +48,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
     fullname: shipping.fullname || profile.fullname || '',
     email: shipping.email || profile.email || '',
     address: shipping.address || profile.address || '',
-    mobile: shipping.mobile || profile.mobile || {
-      country: 'us',
-      countryCode: '1', 
-      dialCode: '+1', 
-      value: '',
-    },
+    mobile: shipping.mobile || profile.mobile || '',
     isInternational: shipping.isInternational || false,
     isDone: shipping.isDone || false
   };
