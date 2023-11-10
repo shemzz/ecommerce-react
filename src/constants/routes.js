@@ -1,4 +1,5 @@
 export const HOME = '/';
+export const THANKS = '/thanks';
 export const SHOP = '/shop';
 export const FEATURED_PRODUCTS = '/featured';
 export const RECOMMENDED_PRODUCTS = '/recommended';

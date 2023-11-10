@@ -25,6 +25,11 @@ const AppRouter = () => (
           path={ROUTES.SEARCH}
         />
         <Route
+          component={view.Thanks}
+          exact
+          path={ROUTES.THANKS}
+        />
+        <Route
           component={view.Home}
           exact
           path={ROUTES.HOME}
