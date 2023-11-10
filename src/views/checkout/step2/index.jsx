@@ -26,13 +26,13 @@ const FormSchema = Yup.object().shape({
     .required('Email is required.'),
   address: Yup.string()
     .required('Shipping address is required.'),
-  mobile: Yup.object()
-    .shape({
-      country: Yup.string(),
-      countryCode: Yup.string(),
-      dialCode: Yup.string().required('Mobile number is required'),
-      value: Yup.string().required('Mobile number is required')
-    })
+  phone: Yup.string()
+    // .shape({
+    //   country: Yup.string(),
+    //   countryCode: Yup.string(),
+    //   dialCode: Yup.string().required('Mobile number is required'),
+    //   value: Yup.string().required('Mobile number is required')
+    // })
     .required('Mobile number is required.'),
   isInternational: Yup.boolean(),
   isDone: Yup.boolean()
@@ -48,7 +48,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
     fullname: shipping.fullname || profile.fullname || '',
     email: shipping.email || profile.email || '',
     address: shipping.address || profile.address || '',
-    mobile: shipping.mobile || profile.mobile || '',
+    phone: '',
     isInternational: shipping.isInternational || false,
     isDone: shipping.isDone || false
   };
@@ -58,7 +58,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
       fullname: form.fullname,
       email: form.email,
       address: form.address,
-      mobile: form.mobile,
+      phone: form.phone,
       isInternational: form.isInternational,
       isDone: true
     }));
@@ -125,7 +125,7 @@ ShippingDetails.propTypes = {
     fullname: PropType.string,
     email: PropType.string,
     address: PropType.string,
-    mobile: PropType.object,
+    phone: PropType.string,
     isInternational: PropType.bool,
     isDone: PropType.bool
   }).isRequired

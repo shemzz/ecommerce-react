@@ -5,12 +5,6 @@ import React, { useState } from 'react';
 
 const ShippingForm = () => {
   const { values } = useFormikContext();
-  const [phone, setPhone] = useState('')
-  console.log(values)
-  if (values.mobile.value == undefined) {
-    console.log('no values')
-    values.mobile = { dialCode: '1', countryCode: 'us', country: 'United States', value: phone }
-  }
 
   return (
     <div className="checkout-shipping-wrapper">
@@ -46,11 +40,17 @@ const ShippingForm = () => {
               component={CustomInput}
             />
           </div>
-          {/* tt */}
-          
           <div className="d-block checkout-field">
-            <CustomMobileInput name="mobile" defaultValue={values.mobile} />
+            <Field
+              name="phone"
+              type="phone"
+              label="* Phone Number"
+              placeholder="Enter your phone number"
+              component={CustomInput}
+            />
+
           </div>
+
         </div>
         <div className="checkout-fieldset">
           <Field name="isInternational">
