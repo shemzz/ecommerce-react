@@ -32,6 +32,10 @@ const BTCPayButton = ({ amount }) => {
       "orderId": orderId,
       "itemDesc": "Orders from ChristaGold.com",
       "items": orderedItems,
+      "posData": orderedItems,
+      "recieptData": {
+        'Cart': { orderedItems }
+      }
     },
     "checkout": {
       "speedPolicy": "HighSpeed",
@@ -41,10 +45,10 @@ const BTCPayButton = ({ amount }) => {
       "defautPaymentMethod": "BTC",
       "lazyPaymentMethods": true,
       "paymentTolerance": 20,
-      "redirectURL": "https://christagold.com/thank-you",
+      "redirectURL": "https://christagold.com/thanks",
       "redirectAutomatically": true,
       "requiresRefundEmail": true,
-      "checkoutType": "v2"
+      // "checkoutType": "v2"
     },
     "amount": `${amount}`,
     "currency": "USD",
